@@ -14,7 +14,7 @@ function step(lastValue, value, key, prng) {
   return rng.int32();
 }
 
-module.exports = function kissmyhas(data, {length = 1024, prng = seedrandom, serializer = bencode.encode}) {
+module.exports = function kissmyhas(data, {length = 1024, prng = seedrandom, serializer = bencode.encode} = {}) {
   data = serializer(data);
 
   const key = new Uint8Array(length);
