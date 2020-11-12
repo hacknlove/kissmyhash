@@ -52,7 +52,7 @@ it must be anything serializable by the serializer.
 #### options
 it is an object with three optional fields:
 * length: The amount of bytes the hash will have. It defaults to 1024
-* prng: You can set a different function to serialize your data. It should be a function that accepts a (numeric) seed, and it should return an object with the method int32 that returns the pseudo random numbers. It defaults to seedrandom
+* prng: You can set a different pseudorandom number generator. It should be a function that accepts a (numeric) seed, and it should return an object with the method int32 that returns the pseudo random numbers. It defaults to seedrandom
 * serializer: You can set a different serializer. It should be a function that returns an array of numbers, or Uint8Array. It defaults to bencode.encode
 
 ## Warnings about hashing objects with default serializer `bencode.encode`.
