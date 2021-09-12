@@ -1,9 +1,6 @@
 const seedrandom = require('seedrandom');
 const base64Url = require('base64url');
-const bencode = require('bencode');
-
-// next line prevent benconde from warning with booleans etc.
-bencode.encode._floatConversionDetected = true;
+const { cencode } = require('./cencode');
 
 function step(lastValue, value, key, prng) {
   const rng = prng(lastValue + value);
@@ -14,8 +11,10 @@ function step(lastValue, value, key, prng) {
   return rng.int32();
 }
 
-module.exports = function kissmyhas(data, {length = 1024, prng = seedrandom, serializer = bencode.encode} = {}) {
-  data = serializer(data);
+const isoBuffer = process.browser ? require('Buffer/').Buffer : Buffer;
+
+module.exports = function kissmyhas(data, {length = 1024, prng = seedrandom, serializer = cencode} = {}) {
+  data = isoBuffer.from(serializer(data));
 
   const key = new Uint8Array(length);
 
@@ -27,5 +26,3 @@ module.exports = function kissmyhas(data, {length = 1024, prng = seedrandom, ser
 
   return base64Url.encode(key)
 }
-
-const alea = require('seedrandom/lib/alea')
