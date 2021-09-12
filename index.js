@@ -1,6 +1,6 @@
 const seedrandom = require('seedrandom');
 const base64Url = require('base64url');
-const { cencode } = require('./cencode');
+const { cencode } = require('cencode');
 
 function step(lastValue, value, key, prng) {
   const rng = prng(lastValue + value);
