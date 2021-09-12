@@ -1,6 +1,6 @@
 {
   "name": "kissmyhash",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Hashes as long and strong as you need. It defaults to 1024 bytes, but you can set higher or lower. It based on PRNG and xor operations, and its code is so short and clean with nothing obscure that it is easy to undersand how it works.",
   "main": "index.js",
   "keywords": [
@@ -11,7 +11,8 @@
   "homepage": "https://github.com/hacknlove/kissmyhash",
   "license": "ISC",
   "files": [
-    "./index.js"
+    "./index.js",
+    "./cencode.ks"
   ],
   "man": "./index.js",
   "repository": {
