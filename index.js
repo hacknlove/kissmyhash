@@ -11,7 +11,7 @@ function step(lastValue, value, key, prng) {
   return rng.int32();
 }
 
-const isoBuffer = process.browser ? require('Buffer/').Buffer : Buffer;
+const isoBuffer = process.browser ? require('buffer/').Buffer : Buffer;
 
 module.exports = function kissmyhas(data, {length = 1024, prng = seedrandom, serializer = cencode} = {}) {
   data = isoBuffer.from(serializer(data));
